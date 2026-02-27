@@ -1,12 +1,12 @@
 # Answer Sync Extension
 
-A Chrome Extension that automatically detects questions on webpages and provides answers using the Gemini API.
+A Chrome Extension that automatically detects questions on webpages and provides answers using an AI API.
 
 ## Features
 
 - **Auto-Detection**: Scans web pages for questions.
 - **Floating Action Button**: Injects a "✨ Solve" button next to detected questions.
-- **Smart Answering**: Uses the Gemini API to generate concise answers.
+- **Smart Answering**: Uses advanced AI to generate concise answers.
 - **Auto-Fill**: Automatically fills text inputs, textareas, and selects the correct radio button based on the generated answer.
 - **Monetization Ready**: Configured to authenticate with a custom backend and check for active subscriptions (e.g., via Stripe) before providing answers.
 
@@ -19,11 +19,11 @@ This extension uses a secure architecture suitable for monetization:
 3.  **Backend Processing (Your Server)**:
     - Verifies the user's authentication token.
     - Checks the user's subscription status (e.g., querying your database or a payment provider like Stripe) to ensure they have an active plan.
-    - If valid, securely calls the Gemini API using your secret server-side API key.
+    - If valid, securely calls the AI API using your secret server-side API key.
     - Returns the generated answer to the extension.
 4.  **Client-Side Injection**: The extension displays the answer and provides the auto-fill functionality.
 
-This architecture ensures that your Gemini API key remains hidden and allows you to enforce subscription limits or paywalls effectively.
+This architecture ensures that your AI API key remains hidden and allows you to enforce subscription limits or paywalls effectively.
 
 ## Setup Instructions
 
@@ -36,7 +36,7 @@ You will need to build a simple backend server (e.g., using Node.js/Express, Pyt
     -   Requires an `Authorization: Bearer <token>` header.
     -   Accepts a JSON payload: `{ "question": "...", "context": "..." }`.
     -   Authenticates the user and checks their subscription status.
-    -   Calls the Gemini API.
+    -   Calls the AI API.
     -   Returns the JSON response: `{ "answer": "..." }`.
 -   **`/pricing`**: A page where users can manage or purchase their subscription (e.g., integrating Stripe Checkout).
 

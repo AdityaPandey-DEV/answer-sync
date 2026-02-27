@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Answer Sync",
   "version": "1.0",
-  "description": "Auto detect questions on a webpage and answer them using Gemini API.",
+  "description": "Auto detect questions on a webpage and answer them using advanced AI.",
   "permissions": [
     "storage",
     "activeTab",
