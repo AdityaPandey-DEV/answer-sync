@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Answer Sync",
+  "version": "1.0",
+  "description": "Auto detect questions on a webpage and answer them using Gemini API.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["content.css"],
+      "js": ["content.js"]
+    }
+  ]
+}

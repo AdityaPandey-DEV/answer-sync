@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Answer Sync Settings</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Answer Sync ✨</h2>
+
+        <!-- Logged out view -->
+        <div id="loggedOutView" class="view-section">
+            <p class="desc">Sign in to sync answers automatically and access your subscription.</p>
+            <div class="auth-buttons">
+                <button id="signInBtn" class="btn-primary">Sign In</button>
+                <button id="signUpBtn" class="btn-secondary">Sign Up</button>
+            </div>
+        </div>
+
+        <!-- Logged in view -->
+        <div id="loggedInView" class="view-section hidden">
+            <p class="user-info">Logged in as: <span id="userEmail">...</span></p>
+
+            <!-- Subscription Status -->
+            <div class="subscription-card">
+                <div class="status-header">
+                    <span class="status-label">Subscription Status:</span>
+                    <span id="subStatusBadge" class="badge">Checking...</span>
+                </div>
+
+                <!-- Not Subscribed / Expired -->
+                <div id="upgradeSection" class="hidden">
+                    <p class="upgrade-text">Unlock unlimited answers for just <strong>$4.99/month</strong> or
+                        <strong>$49.99/year</strong>.</p>
+                    <button id="upgradeBtn" class="btn-primary subscribe-btn">Subscribe Now</button>
+                </div>
+            </div>
+
+            <div class="setting checkbox-row mt-10">
+                <input type="checkbox" id="extensionEnabled">
+                <label for="extensionEnabled">Enable Extension</label>
+            </div>
+
+            <div class="action-buttons">
+                <button id="saveBtn" class="btn-secondary">Save Settings</button>
+                <button id="signOutBtn" class="btn-text">Sign Out</button>
+            </div>
+        </div>
+
+        <div id="status" class="hidden">Saved!</div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>
