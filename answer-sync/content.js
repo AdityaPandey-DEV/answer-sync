@@ -8,6 +8,27 @@ chrome.storage.local.get(['extensionEnabled'], (result) => {
     }
 });
 
+// Listen for authentication messages from the web app (e.g. login/signup)
+window.addEventListener('message', (event) => {
+    // Only accept messages from our web app domain
+    // During development it might be localhost, in production it's vercel.app
+    const allowedOrigins = ['http://localhost:3000', 'https://answer-sync-web.vercel.app'];
+    if (!allowedOrigins.includes(event.origin)) return;
+
+    if (event.data && event.data.type === 'ANSWER_SYNC_AUTH') {
+        const { token, user } = event.data;
+        if (token && user) {
+            chrome.storage.local.set({
+                authToken: token,
+                userEmail: user.email,
+                subscriptionActive: user.subscriptionActive
+            }, () => {
+                console.log('Answer Sync: Successfully authenticated and saved token.');
+            });
+        }
+    }
+});
+
 // Update on settings change
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.type === 'SETTINGS_UPDATED') {
