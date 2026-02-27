@@ -17,9 +17,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
             try {
                 const token = result.authToken;
-                // This is a placeholder for YOUR backend API URL
-                // Your backend will verify the license key, then call the AI API using your server-side API key.
-                const apiUrl = 'https://api.yourdomain.com/solve';
+                const apiUrl = 'https://answer-sync-web.vercel.app/api/solve';
 
                 const response = await fetch(apiUrl, {
                     method: 'POST',

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const enableCheckbox = document.getElementById('extensionEnabled');
     const saveBtn = document.getElementById('saveBtn');
     const statusEl = document.getElementById('status');
-    const backendUrl = 'https://api.yourdomain.com'; // Change to actual backend
+    const backendUrl = 'https://answer-sync-web.vercel.app'; // Change to actual backend
 
     // Check auth state on load
     checkAuthState();
